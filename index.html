@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="icon" href="icons/tablogo.png" type="image/png">
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Raleway:wght@300&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Basic Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Left and Right Section */
+        .left_section, .right_section {
+            width: 50%;
+            height: 100vh;
+            overflow-y: auto;
+            position: fixed;
+        }
+
+        .left_section {
+            left: 0;
+            padding: 50px;
+        }
+
+        .right_section {
+            right: 0;
+            margin-left: 50%;
+            padding: 50px;
+        }
+
+        /* Name and Title Styles */
+        .names h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 45px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Animated fading text for titles */
+        .namesline_current {
+            font-size: 22px;
+            color: #b5b5b5;
+            position: relative;
+            overflow: hidden;
+            height: 35px;
+        }
+
+        .namesline_current span {
+            position: absolute;
+            opacity: 0;
+            animation: fadeText 9s ease-in-out infinite;
+            transform: scale(0.8);
+        }
+
+        .namesline_current span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .namesline_current span:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .namesline_current span:nth-child(3) {
+            animation-delay: 6s;
+        }
+
+        @keyframes fadeText {
+            0% { opacity: 0; transform: scale(0.8); }
+            10% { opacity: 1; transform: scale(1); }
+            30% { opacity: 1; }
+            40% { opacity: 0; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1.2); }
+        }
+
+        .namesline_about {
+            font-size: 18px;
+            margin-top: 20px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Tabs and Contact Icons */
+        .tabs a {
+            display: block;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .tabs a:hover {
+            color: #f39c12;
+        }
+
+        .contact {
+            margin-top: 50px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact img {
+            width: 30px;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact img:hover {
+            opacity: 0.7;
+        }
+
+        /* Right Section Spacing */
+        .right_section h3 {
+            font-size: 30px;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .active-tab {
+            display: block;
+        }
+
+        .single_project, .experience_block {
+            background-color: #333;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .single_project:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="left_section">
+        <div class="names">
+            <h1 class="namesline_name">Swasthi P Rao</h1>
+            <img src="pics/swasthipic.jpeg" alt="Swasthi P Rao" class="profile-image" style="width: 120px; /* Smaller size */
+                height: 120px;
+                border-radius: 50%; /* Circular image */
+                margin-top: 0px; /* Space between name and image */
+                margin-left: 85px;">
+            <h2 class="namesline_current">
+                <span style="margin-left: 65px">ML Researcher</span>
+                <span style="margin-left: 65px">Data Scientist</span>
+                <span style="margin-left: 65px">Software Engineer</span>
+            </h2>
+            <p class="namesline_about">Innovatively optimizing solutions and workflows.</p>
+        </div>
+
+        <div class="tabs">
+            <a href="#about" class="tab-link" id="tab-link-about">ABOUT</a>
+            <a href="#experience" class="tab-link" id="tab-link-experience">EXPERIENCE</a>
+            <a href="#publications" class="tab-link" id="tab-link-publications">PUBLICATIONS</a>
+            <a href="#projects" class="tab-link" id="tab-link-projects">PROJECTS</a>
+            <a href="#honors" class="tab-link" id="tab-link-honors">HONORS</a>
+            <a href="#contact" class="tab-link" id="tab-link-contact">CONTACT</a>
+        </div>
+
+        <div class="contact">
+            <a href="spr2139@columbia.edu" target="_blank">
+                <img class="contact_icons" src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Mail">
+            </a>
+            <a href="https://www.linkedin.com/in/swasthiprao/" target="_blank">
+                <img class="contact_icons" src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/Arya0Stark" target="_blank">
+                <img class="contact_icons" src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+            </a>
+            <a href="https://scholar.google.com/citations?user=ssyWpG4AAAAJ&hl=en" target="_blank">
+                <img class="contact_icons" src="https://img.icons8.com/?size=100&id=pU44R9xgF3wq&format=png&color=FFFFFF" alt="Google Scholar">
+            </a>
+        </div>
+    </div>
+
+    <div class="right_section" id="right-section">
+        <div id="about" class="tab-content active-tab">
+            <h3>About Me</h3>
+            <p class="about_text">
+                I am passionate about making high-end technology accessible to everyone while continually expanding my skill set. With an M.S. in Electrical Engineering from Columbia University, specializing in Data-Driven Analysis and Computation, I thrive on creating impactful, data-driven machine learning solutions.
+                <br><br>
+                My professional journey spans experiences at organizations like FINRA, where I built robust prediction models and evaluated LLMs for MLOps, to JPMorgan Chase, where I integrated big data techniques by migrating applications to AWS. I’ve also researched cutting-edge technologies like neural ordinary differential equations and reinforcement learning during my time at Bosch.
+                <br><br>
+                Currently, as a Research Assistant at Columbia, I work on optimizing LLM-based negotiation systems using game theory and reinforcement learning, while also guiding students as a Graduate Teaching Assistant in AI Ethics and Data Science.
+                <br><br>
+                With a focus on building intelligent software and cloud-native applications, I’m eager to contribute as a data scientist, ML researcher, or software engineer. My academic and professional mission is to bridge technology with real-world impact, ensuring accessibility and innovation.
+            </p>
+            <p style="font-style: italic;"></p>
+                You can find my resume <a href="https://drive.google.com/file/d/1sOlKxr3qWD3ohb6FtMzUoeK9XliVEKHC/view?usp=sharing" target="_blank" style="font-weight: bold; color: #ffffff; text-decoration: underline;">here</a>.
+            </p>
+        </div>
+
+        <div id="experience" class="tab-content">
+            <h3>Experience</h3>
+        
+            <div class="experience_block">
+                <div class="card">
+                    <h4>
+                        <img src="pics/columbia.png" alt="Columbia University Logo" class="company_logo">
+                        <strong>Columbia University, New York, NY</strong>
+                    </h4>
+                    <p style="font-weight: bold; color: #ffffff;"><strong><em>Research Assistant</em></strong> | Sep 2024 - Present</p>
+                    <p>
+                        Engaged in developing a cutting-edge LLM-based Retrieval-Augmented Generation (RAG) education chatbot tailored for multi-issue negotiations. Leveraging data-driven and game-theoretic approaches, I enhanced the dialogue system by incorporating Pareto optimality and egalitarian principles, while establishing a robust reinforcement learning feedback mechanism to refine user interactions.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="experience_block">
+                <div class="card">
+                    <h4>
+                        <img src="pics/finra.jpg" alt="FINRA Logo" class="company_logo">
+                        <strong>FINRA (Financial Industry Regulatory Authority), New York, NY</strong>
+                    </h4>
+                    <p style="font-weight: bold; color: #ffffff;"><strong><em>Data Scientist Intern</em></strong> | May 2024 - Aug 2024</p>
+                    <p>
+                        Employed prompt engineering alongside few-shot and active learning techniques to critically assess and compare industry-leading language models such as Amazon Q and GitHub Copilot. Successfully optimized the AWS Data Lake pipeline, resulting in a significant enhancement of defect prediction accuracy in MLOps data flow from 74% to 86% using a stacking ensemble model comprising LightGBM, SVC, AdaBoost, and Isolation Forest clustering. Visualized financial trend metrics using Grafana for actionable insights.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="experience_block">
+                <div class="card">
+                    <h4>
+                        <img src="pics/jpmc.png" alt="JP Morgan Logo" class="company_logo">
+                        <strong>JP Morgan Chase & Co., Bengaluru, KA</strong>
+                    </h4>
+                    <p style="font-weight: bold; color: #ffffff;"><strong><em>Software Engineering Intern</em></strong> | Feb 2023 - May 2023</p>
+                    <p>
+                        Enhanced data ingestion workflows by implementing Kafka data partitioning, AWS Glue, Directed Acyclic Graphs (DAGs), and Athena databases, achieving a 20% reduction in latency. Contributed to the migration of an on-premise ETL platform to AWS, utilizing Hadoop and Spark on EKS to efficiently process large-scale archival data.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="experience_block">
+                <div class="card">
+                    <h4>
+                        <img src="pics/bosch.png" alt="Bosch Logo" class="company_logo">
+                        <strong>Bosch Global Software Technologies (BGSW), Bengaluru, KA</strong>
+                    </h4>
+                    <p style="font-weight: bold; color: #ffffff;"><strong><em>Machine Learning Research Intern</em></strong> | Jun 2022 - Jul 2022</p>
+                    <p>
+                        Investigated generative reinforcement learning methods, applying transfer learning to improve battery cell chemistry predictions, resulting in a remarkable 74.6% reduction in root mean square error (RMSE). Conducted a comparative analysis of Neural Ordinary Differential Equations (ODE) performance in continuous time series modeling, utilizing iterative optimization techniques in both Julia and Python.
+                    </p>
+                </div>
+            </div>
+        
+        </div>
+        
+        <style>
+            .experience_block {
+                margin-bottom: 20px;
+            }
+        
+            .card {
+                background-color: #333;
+                padding: 20px;
+                border-radius: 8px;
+                transition: transform 0.3s;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .card:hover {
+                transform: translateY(-5px);
+            }
+        
+            .card h4 {
+                margin: 0;
+                color: #ffffff;
+                display: flex; /* Use flex to align items horizontally */
+                align-items: center; /* Center items vertically */
+            }
+        
+            .card p {
+                margin: 5px 0;
+                color: #b5b5b5;
+            }
+        
+            .company_logo {
+                width: 50px; /* Adjust size as needed */
+                height: auto; /* Maintain aspect ratio */
+                margin-right: 10px; /* Space between image and text */
+                vertical-align: middle; /* Align logo vertically with text */
+            }
+        </style>
+        
+        
+        <div id="publications" class="tab-content">
+            <h3>Publications</h3>
+            <div class="single_project" style="border: 1px solid #ccc; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                <h4 id="publication_title" style="font-weight: 2000; font-size: 1.5em; animation: fadeIn 1s;">Measures of Lexical Diversity and Alzheimer's Disease (AD) Severity Detection Using Speech</h4>
+                <p style="color: darkgray;">
+                    INFO: Analyzed 9 lexical diversity measures (NLP) in AD patient speech, comparing 7 models (highest accuracy - KNN: 88.92%). This paper aims to analyze the difference in linguistic features between control and dementia groups regarding <strong>lexical diversity</strong> through measures like <strong>Brunet’s</strong> and <strong>Sichel’s measure</strong>. 
+                    The result displays the difference in lexical diversity, which is a significant marker for cognitive ability in speech.
+                </p>
+                <p style="font-weight: bold; font-style: italic;">Published in <em>Proceedings of the 15th International Conference on Agents and Artificial Intelligence (ICAART) 2023, SCITEPRESS Journal</em>.</p>
+                <p>
+                    Paper and Github Links -
+                </p>
+                <div class="publication-links" style="display: flex; gap: 10px; margin-top: 10px;">
+                    <a href="https://www.scitepress.org/publishedPapers/2023/117790/pdf/index.html" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/file.png" alt="Publication Link">
+                    </a>
+                    <a href="https://github.com/Arya0Stark/Detection-of-Alzheimers-using-Speech" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png" alt="GitHub Link">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .single_project {
+                background-color: #282424; /* Light background for the card */
+            }
+        </style>
+        
+        
+        <style>
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        </style>
+        
+        
+
+        <div id="projects" class="tab-content">
+            <h3>Projects</h3>
+    <div class="project-cards">
+        <div class="project-card" style="animation-delay: 0.1s;">
+            <h4 class="project-title">Deep Learning Research: Ablation Study of Variational AutoEncoders (VAE)</h4>
+            <p class="project-description">
+                Conducted a comprehensive analysis of VAE reparameterization and its optimization performance, focusing on the latent space dynamics. Developed innovative data augmentation techniques using synthetically generated VAE samples, achieving a 45% reduction in reconstruction loss and an 11% decrease in processing time**, enhancing model efficiency.
+            </p>
+            <div class="project-links">
+                <span>Report and GitHub Links -</span>
+                <div class="link-container" style="display: flex; gap: 10px; margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1ykMr9HjqEUD8ghgc3uU44AkCFs1h3ZpL/view?usp=sharing" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/file.png" alt="Report Link">
+                    </a>
+                    <a href="https://github.com/Arya0Stark/Behavior-of-VAE" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png" alt="GitHub Link">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" style="animation-delay: 0.3s;">
+            <h4 class="project-title">Big Data Analytics: Stock Price Prediction Using Media Sentiment Analysis</h4>
+            <p class="project-description">
+                Leveraged sentiment analysis on corporate tweets using NLTK to derive insights into public perception. Conducted a comparative analysis of PCA's impact on stock data, integrating sentiment scores and training various forecasting models (Random Forest, Adaboost, Linear Regression, LSTM) to optimize short and long-term stock prediction scenarios.
+            </p>
+            <div class="project-links">
+                <span>Report and GitHub Links -</span>
+                <div class="link-container"  style="display: flex; gap: 10px; margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1-gbF7WSkz07M8peFaMk6uICkEqz_l8Os/view?usp=sharing" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/file.png" alt="Report Link">
+                    </a>
+                    <a href="https://github.com/Arya0Stark/BigDataAnalytics_StockPricePrediction_MediaSentimentAnalysis" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png" alt="GitHub Link">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" style="animation-delay: 0.5s;">
+            <h4 class="project-title">Neural Networks and DL: Reproducing BinaryConnect of <a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/3e15cc11f979ed25912dff5b0669f2cd-Paper.pdf" target="_blank" style="text-decoration: underline; color: inherit;">Existing Paper</a> in TensorFlow</h4>
+            <p class="project-description">
+                Investigated the effects of weight binarization in deep neural networks** by reproducing the BinaryConnect architecture written originally in Theano and Lasagne and adapting it to TensorFlow. Developed custom layers to optimize performance, contributing to advancements in model efficiency and robustness in deep learning applications.
+            </p>
+            <div class="project-links">
+                <span>Report and GitHub Links -</span>
+                <div class="link-container" style="display: flex; gap: 10px; margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1v0t6JxMh3mYMh3CaEMz4sYrty8JiBjCV/view?usp=sharing" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/file.png" alt="Report Link">
+                    </a>
+                    <a href="https://github.com/Arya0Stark/BinaryConnect_TensorflowImplementation" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png" alt="GitHub Link">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" style="animation-delay: 0.7s;">
+            <h4 class="project-title">Cloud Computing: Cloud-Native Full Stack Application for Alumni (AWS, Azure, GCP)</h4>
+            <p class="project-description">
+                Designed and implemented a cloud-native full-stack application** to enhance alumni engagement. Developed event-driven microservices- posts (Azure), users (GCP) and messages (AWS) for alumni connections using Google Pub/Sub, enabling API Gateway, SSO, JWT (for authentication) and GraphQL to facilitate dynamic user interactions and ensure scalable, maintainable architecture.
+            </p>
+            <div class="project-links">
+                <span>Report and GitHub Links -</span>
+                <div class="link-container" style="display: flex; gap: 10px; margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1hvOl8bO7HNFnSmBLnCHkLN32TaH-rmVW/view?usp=sharing" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/file.png" alt="Report Link">
+                    </a>
+                    <a href="https://github.com/Arya0Stark/Cloud-Computing-Fall-Repo" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/24/ffffff/github.png" alt="GitHub Link">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+                
+            </div>
+        </div>
+        
+        <style>
+            .project-cards {
+                display: flex;
+                flex-direction: column;
+            }
+        
+            .project-card {
+                background-color: #282424;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 4px 0;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+                animation: slideIn 0.5s; /* Default animation for the first card */
+            }
+        
+            .project-card:hover {
+                transform: scale(1.02); /* Scale up slightly on hover */
+            }
+        
+            .link-container {
+                display: flex;
+                gap: 10px; /* Space between the icons */
+            }
+        
+            @keyframes slideIn {
+                from {
+                    transform: translateY(20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        
+            h3 {
+                margin-bottom: 10px;
+            }
+        
+            .project-title {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+        
+            .project-description {
+                color: darkgray;
+            }
+        
+            .project-links span {
+                font-weight: bold;
+            }
+        </style>
+        
+
+        <div id="honors" class="tab-content">
+            <h3>Honors & Awards</h3>
+            <div class="honor-cards">
+        
+                <div class="honor-card" style="background-color: #282424;">
+                    <h4 class="honor-title">Technovation Global Winner</h4>
+                    <p class="honor-year">Year: 2015</p>
+                    <p class="honor-description">
+                        Represented India among 68 countries to win a global app-making contest and gain seed funding of $10,000. Recognized by the Wall Street Journal, Prime Minister Narendra Modi, and the then US Ambassador Richard Verma.
+                    </p>
+                    <a href="https://www.wsj.com/articles/girls-who-code-from-around-globe-1435275208" target="_blank" class="learn-more">Click to Learn More</a>
+                </div>
+        
+                <div class="honor-card" style="background-color: #282424;">
+                    <h4 class="honor-title">United Nations Millennium Fellowship</h4>
+                    <p class="honor-year">Year: 2021</p>
+                    <p class="honor-description">
+                        Awarded by the United Natios Acdemic Impact for my social impact on campus in bettering gender equality and bringing women empowerment with my initiative—a campus club "Seiscore" providing an interdisciplinary makerspace and resources for women engineers.
+                    </p>
+                    <a href="https://www.millenniumfellows.org/fellow/2021/pes/swasthi-p-rao" target="_blank" class="learn-more">Click to Learn More</a>
+                </div>
+        
+                <div class="honor-card" style="background-color: #282424;">
+                    <h4 class="honor-title">Wetech Goldman Sachs Scholar</h4>
+                    <p class="honor-year">Year: 2021</p>
+                    <p class="honor-description">
+                        Awarded by by the Institute for International Education (IIE) for all-round academic excellence and outstanding passion to solve world problems with technology, receiving a six-month mentorship from Goldman Sachs on professionalism in the IT industry.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1z1boGBFZJ4NKsQc0HnwvyR4SiXA8mCfc/view?usp=sharing" target="_blank" class="learn-more">Click to Learn More</a>
+                </div>
+        
+                <div class="honor-card" style="background-color: #282424;">
+                    <h4 class="honor-title">Harvard WECode Scholar</h4>
+                    <p class="honor-year">Year: 2023</p>
+                    <p class="honor-description">
+                        Received the WeAmplify Scholarship from Harvard to attend the largest coding conference for women—Harvard WECode, in light of my achievements and academic record.
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1H0MhBmELQOKx-V3f-ZkAEm_ejAgIomue?usp=sharing" target="_blank" class="learn-more">Click to Learn More</a>
+                </div>
+        
+                <div class="honor-card" style="background-color: #282424;">
+                    <h4 class="honor-title">MRD Scholarship</h4>
+                    <p class="honor-year">Year: 2019 - 2023</p>
+                    <p class="honor-description">
+                        Awarded by my undergraduate institution, PES University, for being in the top 5% of the batch academically. This scholarship covered 50% of my tuition for 4 years (2019-2023).
+                    </p>
+                    <a href="https://pes.edu/admissions/scholarships/" target="_blank" class="learn-more">Click to Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+        .honor-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center cards */
+        }
+        
+        .honor-card {
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 300px; /* Adjust width as needed */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .honor-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 0 10px;
+        }
+        
+        .honor-year {
+            font-weight: bold;
+        }
+        
+        .honor-description {
+            margin-bottom: 15px;
+        }
+        
+        .learn-more {
+            display: inline-block;
+            text-decoration: underline;
+            animation: flash 1.5s infinite alternate;
+            color: white;
+            font-weight: bold;
+        }
+        
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+        </style>
+        
+
+        <div id="contact" class="tab-content">
+            <h3>Contact</h3>
+            <p>Feel free to get in touch via email or LinkedIn for any collaboration opportunities!</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll functionality for navigation
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                let target = document.querySelector(this.getAttribute('href'));
+                
+                // Remove active class from all tab contents
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active-tab');
+                });
+                
+                // Add active class to the clicked tab
+                target.classList.add('active-tab');
+            });
+        });
+    </script>
+</body>
+</html>
