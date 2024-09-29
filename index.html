@@ -17,14 +17,21 @@
             background-color: #1a1a2e;
             color: #fff;
             font-family: 'Raleway', sans-serif;
+            display: flex; 
+        }
+        .container {
+            display: flex; /* Flexbox layout */
+            width: 100%;
+            height: 100vh;
         }
 
         /* Left and Right Section */
         .left_section, .right_section {
             width: 50%;
             height: 100vh;
-            overflow-y: auto;
-            position: fixed;
+            overflow-y: relative; /* Scrollable content */
+            position: fixed; /* Keep sections fixed */
+            
         }
 
         .left_section {
@@ -37,6 +44,20 @@
             margin-left: 50%;
             padding: 50px;
         }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack sections vertically on smaller screens */
+            }
+
+            .left_section, .right_section {
+                position: static;
+                width: 100%; /* Full width for each section */
+                height: auto; /* Adjust height to fit content */
+                margin:0;
+                
+            }
+        }
+
 
         /* Name and Title Styles */
         .names h1 {
@@ -146,6 +167,7 @@
     </style>
 </head>
 <body>
+    <div class="container">
     <div class="left_section">
         <div class="names">
             <h1 class="namesline_name">Swasthi P Rao</h1>
@@ -155,9 +177,9 @@
                 margin-top: 0px; /* Space between name and image */
                 margin-left: 85px;">
             <h2 class="namesline_current">
-                <span style="margin-left: 65px">ML Researcher</span>
-                <span style="margin-left: 65px">Data Scientist</span>
-                <span style="margin-left: 65px">Software Engineer</span>
+                <span style="margin-left: 65px;  margin-bottom: 10px;">ML Researcher</span>
+                <span style="margin-left: 65px; margin-bottom: 10px;">Data Scientist</span>
+                <span style="margin-left: 65px;  margin-bottom: 10px;">Software Engineer</span>
             </h2>
             <p class="namesline_about">Innovatively optimizing solutions and workflows.</p>
         </div>
@@ -586,9 +608,18 @@
 
         <div id="contact" class="tab-content">
             <h3>Contact</h3>
-            <p>Feel free to get in touch via email or LinkedIn for any collaboration opportunities!</p>
+            <p class="contact_text">
+                Please feel free to reach out to me via my LinkedIn or email for any work opportunities or research collaborations!
+                <br><br>
+                I am always looking to learn more and rise above my skill set, to make a small dent in the huge butterfly effect of technical possibilities.
+                <br><br>
+                </p>
+            
+                
         </div>
+    
     </div>
+</div>
 
     <script>
         // Smooth scroll functionality for navigation
