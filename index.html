@@ -44,6 +44,15 @@
             margin-left: 50%;
             padding: 50px;
         }
+        /* Scroll Message */
+        .scroll_message {
+            display: none; /* Hidden by default */
+            text-align: center;
+            font-size: 18px;
+            padding: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
         @media (max-width: 768px) {
             .container {
                 flex-direction: column; /* Stack sections vertically on smaller screens */
@@ -55,6 +64,9 @@
                 height: auto; /* Adjust height to fit content */
                 margin:0;
                 
+            }
+            .scroll_message {
+                display: block; /* Show scroll message on mobile view */
             }
         }
 
@@ -168,6 +180,7 @@
 </head>
 <body>
     <div class="container">
+        <div class="scroll_message">Scroll down to see selected section content</div>
     <div class="left_section">
         <div class="names">
             <h1 class="namesline_name">Swasthi P Rao</h1>
@@ -208,6 +221,7 @@
             </a>
         </div>
     </div>
+    
 
     <div class="right_section" id="right-section">
         <div id="about" class="tab-content active-tab">
